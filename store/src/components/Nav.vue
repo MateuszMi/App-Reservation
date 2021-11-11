@@ -81,7 +81,7 @@ a {
 .fa-sort-down {
   position: absolute;
   top: 28%;
-  left: 21%;
+  left: 58%;
 }
 .fa-caret-right {
   padding: 8px 16px;

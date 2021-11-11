@@ -8,7 +8,7 @@
       </div>
     </header>
     <img src="../assets/home.png" class="home__image" />
-    <CardProduct />
+    <CardProduct class="cardProduct__container" />
   </div>
 </template>
 

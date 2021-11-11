@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <Nav />
-    <PageContent />
+    <Nav class="nav__container" />
+    <PageContent class="pageContent__container" />
   </div>
 </template>
 
@@ -23,7 +23,12 @@ export default {
 .container {
   display: grid;
   grid-template-columns: minmax(auto, 233px) minmax(auto, 950px);
-  justify-content: center;
-  column-gap: 16px;
+}
+.nav__container {
+  overflow: auto;
+  position: fixed;
+}
+.pageContent__container {
+  grid-column: 2;
 }
 </style>
