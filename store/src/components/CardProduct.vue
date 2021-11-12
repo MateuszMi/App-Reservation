@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="counter--item">{{ items.length }} items</p>
+    <p class="counter--item">{{ products.length }} items</p>
     <section v-if="errored">
       <p>
         We're sorry, we're not able to retrieve this information at the moment,
@@ -11,11 +11,11 @@
     <section v-else class="product__container">
       <div v-if="loading">Loading...</div>
 
-      <div v-else v-for="item in items" :key="item.id">
-        <img :src="item.image" class="product__image" />
-        <p class="product__name">{{ item.product_name }}</p>
+      <div v-else v-for="product in products" :key="product.id">
+        <img :src="product.image" class="product__image" />
+        <p class="product__name">{{ product.product_name }}</p>
         <div class="product__price--box">
-          <p class="product__price">{{ item.price }}</p>
+          <p class="product__price">{{ product.price }}</p>
           <i class="fas fa-shopping-cart"></i>
         </div>
       </div>
@@ -29,7 +29,7 @@ export default {
   name: "CardProduct",
   data() {
     return {
-      items: [],
+      products: [],
       loading: true,
       errored: false,
     };
@@ -39,7 +39,7 @@ export default {
     axios
       .get("http://www.mocky.io/v2/5ab0d1882e0000e60ae8b7a6")
       .then((response) => {
-        this.items = response.data;
+        this.products = response.data;
       })
       .catch((error) => {
         console.log(error);

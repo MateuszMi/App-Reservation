@@ -11,10 +11,7 @@ import Nav from "./Nav.vue";
 
 export default {
   components: { PageContent, Nav },
-  name: "HelloWorld",
-  props: {
-    msg: String,
-  },
+  name: "HomePage",
 };
 </script>
 
