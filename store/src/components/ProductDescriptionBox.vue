@@ -8,13 +8,15 @@
     <div class="box" :class="{ show: active }">
       <div class="box-close" @click="$emit('close-product-box')">X</div>
       <div v-if="product" class="product-details">
-        <h3>{{ product.product_name }}</h3>
+        <h3 class="product-name">{{ product.product_name }}</h3>
+        <p class="product-company">{{ product.company }}</p>
+        <img :src="product.image" class="product-image" />
         <p class="description">{{ product.description }}</p>
         <h3 class="text-center">{{ product.price }}</h3>
 
         <div class="button-container">
           <button class="remove" @click="removeItemFromCard()">Remove</button>
-          <button class="add" @click="addItemToCard()">ADD</button>
+          <button class="add" @click="addItemToCard()">Buy now</button>
         </div>
       </div>
     </div>
@@ -66,19 +68,29 @@ export default {
   left: 0;
 }
 
+.product-company {
+  font-style: italic;
+  margin: 0 0 10px 0;
+  font-size: 20px;
+}
+.product-image {
+  width: 250px;
+  margin: 0 auto;
+}
 .box-close {
   font-size: 1.5rem;
   padding: 5px;
   border-radius: 5px;
   right: 10px;
-  border: 2px solid gray;
-  color: gray;
+  color: white;
   width: 15px;
   float: right;
   cursor: pointer;
+  background-color: black;
 }
 .box-close:hover {
-  background-color: violet;
+  background-color: gray;
+  color: #000;
 }
 .product-details {
   display: flex;
@@ -86,11 +98,18 @@ export default {
   flex-direction: column;
 }
 .button-container button {
-  width: 150px;
   border: none;
   border-radius: 5px;
   margin: 0 5px 50px 5px;
   cursor: pointer;
+  padding: 15px;
+  background-color: black;
+  color: white;
+}
+.remove:hover,
+.add:hover {
+  background-color: gray;
+  color: black;
 }
 p.description {
   padding: 20px;

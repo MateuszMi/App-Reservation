@@ -1,6 +1,13 @@
 <template>
   <div>
-    <img src="../assets/home.png" class="image-home" />
+    <div class="home__container">
+      <img src="../assets/home.png" class="image-home" />
+      <div class="home__box">
+        <h2 class="home--title">New arrivals</h2>
+        <h3 class="home--subtitle">COLLECTION 2016</h3>
+        <button class="home--button">SHOP NOW</button>
+      </div>
+    </div>
     <p class="itemsLength">{{ items.length }} items</p>
     <section v-if="errored">
       <p>
@@ -23,6 +30,8 @@
       />
     </section>
     <Subscribe />
+    <Contact />
+    <Footer />
   </div>
 </template>
 
@@ -31,10 +40,18 @@ import axios from "axios";
 import ProductSummaryCard from "../components/ProductSummaryCard.vue";
 import ProductDescriptionBox from "../components/ProductDescriptionBox.vue";
 import Subscribe from "../components/Subscribe.vue";
+import Contact from "../components/Contact.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
   name: "Home",
-  components: { ProductSummaryCard, ProductDescriptionBox, Subscribe },
+  components: {
+    ProductSummaryCard,
+    ProductDescriptionBox,
+    Subscribe,
+    Contact,
+    Footer,
+  },
   data() {
     return {
       items: [],
@@ -82,7 +99,7 @@ export default {
 .product__container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 32px;
+  column-gap: 32px;
 }
 @media screen and (max-width: 1028px) {
   .product__container {
@@ -91,5 +108,39 @@ export default {
 }
 .image-home {
   width: 100%;
+}
+.home__container {
+  position: relative;
+}
+.home__box {
+  position: absolute;
+  top: 0;
+  padding: 24px;
+  text-align: left;
+}
+.home--title {
+  font-size: 64px;
+  font-weight: 400;
+  color: white;
+  margin: 15px 0;
+}
+.home--subtitle {
+  font-size: 36px;
+  font-weight: 400;
+  color: white;
+  margin: 0;
+}
+.home--button {
+  background-color: black;
+  color: white;
+  padding: 18px 30px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.home--button:hover {
+  background-color: gray;
+  color: #000;
 }
 </style>

@@ -14,3 +14,18 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.view-product-button {
+  margin-bottom: 50px;
+  padding: 15px;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+.view-product-button:hover {
+  background-color: gray;
+  color: #000;
+}
+</style>
