@@ -44,7 +44,7 @@ export default {
 .nav {
   grid-column: 1;
   position: fixed;
-  z-index: 900;
+  z-index: 100;
 }
 .router-view {
   grid-column: 2;
