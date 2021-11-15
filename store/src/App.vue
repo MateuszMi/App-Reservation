@@ -1,10 +1,6 @@
 <template>
   <div class="pageContent">
-    <Nav
-      class="nav"
-      :active="active.open_item"
-      v-on:open-menu-box="openMenuBox()"
-    />
+    <Nav class="nav" />
     <div class="nav__link">
       <router-link
         id="link-name"
@@ -28,12 +24,11 @@ import Nav from "../src/components/Nav.vue";
 
 export default {
   components: { Nav },
-  data() {
-    return {
-      active: {
-        open_item: false,
-      },
-    };
+
+  methods: {
+    closeNewsletterBox() {
+      this.active.newsletter_box = false;
+    },
   },
   computed: {
     itemTotal() {
@@ -42,11 +37,6 @@ export default {
   },
   mouted() {
     this.$store.commit("updateCardFromLocalStorage");
-  },
-  methods: {
-    openMenuBox() {
-      this.active.open_item = false;
-    },
   },
 };
 </script>
@@ -66,12 +56,14 @@ export default {
   max-width: 1200px;
   column-gap: 32px;
 }
-
 .card-total {
   display: flex;
   text-decoration: none;
   justify-content: center;
   align-items: center;
+}
+.card-total:hover {
+  color: gray;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

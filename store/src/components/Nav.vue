@@ -29,16 +29,38 @@
     </div>
     <div class="nav__contact">
       <a href="#contact" class="nav__contact--item">Contact</a>
-      <a href="#Newsletter" class="nav__contact--item">Newsletter</a>
+
+      <a class="nav__contact--item" @click="openNewsletterBox()">Newsletter</a>
+      <Newsletter
+        :active="active.newsletter_box"
+        v-on:close-newsletter-box="closeNewsletterBox()"
+      />
       <a href="#subscribe" class="nav__contact--item">Subscribe</a>
     </div>
   </nav>
 </template>
 
 <script>
+import Newsletter from "../components/Newsletter.vue";
 export default {
+  components: { Newsletter },
   name: "Nav",
-  props: ["active"],
+  data() {
+    return {
+      active: {
+        newsletter_box: false,
+      },
+    };
+  },
+
+  methods: {
+    openNewsletterBox() {
+      this.active.newsletter_box = true;
+    },
+    closeNewsletterBox() {
+      this.active.newsletter_box = false;
+    },
+  },
 };
 </script>
 
