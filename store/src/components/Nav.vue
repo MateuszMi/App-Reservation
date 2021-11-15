@@ -1,14 +1,14 @@
 <template>
   <nav>
-    <h1>LOGO</h1>
+    <h1 class="logo">LOGO</h1>
     <div class="nav__menu">
       <a href="#">Shirts</a>
       <a href="#">Dresses</a>
-      <a v-b-toggle.collapse-1 class="test">
+      <a class="menu__drop">
         Jeans
         <i class="fas fa-sort-down"></i
       ></a>
-      <b-collapse id="collapse-1" class="nav__menu--box">
+      <div class="nav__menu--box">
         <a href="#" class="nav__menu--slide"
           ><i class="fa fa-caret-right"></i>Skinny
         </a>
@@ -20,7 +20,7 @@
         ><a href="#" class="nav__menu--slide"
           ><i class="fa fa-caret-right"></i>Straight</a
         >
-      </b-collapse>
+      </div>
 
       <a href="#">Jackets</a>
       <a href="#">Gymwear</a>
@@ -38,28 +38,31 @@
 <script>
 export default {
   name: "Nav",
-  data() {
-    return { show: false };
-  },
-  methods: {
-    toggle() {
-      this.show = !this.show;
-    },
-  },
+  props: ["active"],
 };
 </script>
 
 <style scoped>
-h1 {
+.logo {
   display: flex;
   align-items: center;
   height: 85px;
   letter-spacing: 4px;
   font-size: 24px;
+  overflow: hidden;
+  margin: 0;
 }
 .nav__menu {
   padding: 64px 0;
   list-style-type: none;
+  text-align: left;
+}
+.nav__menu--box {
+  display: none;
+}
+
+.nav__contact {
+  text-align: left;
 }
 a {
   display: block;
@@ -75,8 +78,14 @@ a {
 .nav__menu--slide:active {
   background-color: gainsboro;
 }
-.test {
+.menu__drop {
   position: relative;
+}
+.menu__drop:hover ~ .nav__menu--box {
+  display: block;
+}
+.nav__menu--box:hover {
+  display: block;
 }
 .fa-sort-down {
   position: absolute;
