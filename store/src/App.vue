@@ -5,16 +5,20 @@
       :active="active.open_item"
       v-on:open-menu-box="openMenuBox()"
     />
-    <div id="nav__link">
-      <router-link :class="{ active: $route.name === 'Home' }" to="/"
+    <div class="nav__link">
+      <router-link
+        id="link-name"
+        :class="{ active: $route.name === 'Home' }"
+        to="/"
         >Jeans</router-link
       >
       <router-link :class="{ active: $route.name === 'Card' }" to="/card">
-        <div class="card">
+        <div class="card-total">
+          <p id="itemTotal">{{ itemTotal }}</p>
           <i class="fas fa-shopping-cart"></i>
-          <p>{{ itemTotal }}</p>
         </div>
       </router-link>
+      <i class="fas fa-search"></i>
     </div>
     <router-view class="router-view" />
   </div>
@@ -60,11 +64,10 @@ export default {
   grid-template-rows: 85px auto;
   margin: 0 auto;
   max-width: 1200px;
+  column-gap: 32px;
 }
-.fa-shopping-cart {
-  margin-right: 10px;
-}
-.card {
+
+.card-total {
   display: flex;
   text-decoration: none;
   justify-content: center;
@@ -78,22 +81,35 @@ export default {
   color: #2c3e50;
 }
 
-#nav__link {
-  display: flex;
-  justify-content: space-around;
+.nav__link {
+  display: grid;
+  grid-template-columns: minmax(auto, 1000px) auto auto;
   align-items: center;
+  justify-content: space-between;
   grid-column: 2;
 }
-
+#link-name {
+  font-size: 24px;
+}
 a {
-  color: red;
+  color: black;
   text-decoration: none;
   display: flex;
   flex-direction: row;
 }
 
-a.active {
-  color: rgb(72, 255, 0);
+.fa-search {
+  font-size: 22px;
+  color: #000;
+  cursor: pointer;
+}
+.fa-shopping-cart {
+  margin-right: 16px;
+  font-size: 22px;
+}
+#itemTotal {
+  font-size: 22px;
+  margin-right: 5px;
 }
 html,
 body {

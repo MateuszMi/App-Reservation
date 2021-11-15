@@ -1,5 +1,7 @@
 <template>
   <div>
+    <img src="../assets/home.png" class="image-home" />
+    <p class="itemsLength">{{ items.length }} items</p>
     <section v-if="errored">
       <p>
         We're sorry, we're not able to retrieve this information at the moment,
@@ -20,6 +22,7 @@
         v-on:close-product-box="closeProductBox()"
       />
     </section>
+    <Subscribe />
   </div>
 </template>
 
@@ -27,10 +30,11 @@
 import axios from "axios";
 import ProductSummaryCard from "../components/ProductSummaryCard.vue";
 import ProductDescriptionBox from "../components/ProductDescriptionBox.vue";
+import Subscribe from "../components/Subscribe.vue";
 
 export default {
   name: "Home",
-  components: { ProductSummaryCard, ProductDescriptionBox },
+  components: { ProductSummaryCard, ProductDescriptionBox, Subscribe },
   data() {
     return {
       items: [],
@@ -53,20 +57,28 @@ export default {
     },
   },
   mounted() {
-    axios
-      .get("http://www.mocky.io/v2/5ab0d1882e0000e60ae8b7a6")
-      .then((response) => {
-        this.items = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
-      })
-      .finally(() => (this.loading = false));
+    setTimeout(() => {
+      axios
+        .get("http://www.mocky.io/v2/5ab0d1882e0000e60ae8b7a6")
+        .then((response) => {
+          this.items = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.errored = true;
+        })
+        .finally(() => (this.loading = false));
+    }, 500);
   },
 };
 </script>
 <style scoped>
+.itemsLength {
+  text-align: start;
+  color: #757575;
+  font-size: 15px;
+  line-height: 1.5;
+}
 .product__container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -76,5 +88,8 @@ export default {
   .product__container {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+.image-home {
+  width: 100%;
 }
 </style>
