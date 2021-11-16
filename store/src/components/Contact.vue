@@ -128,4 +128,9 @@ i {
 .contact__social--item i:hover {
   color: gray;
 }
+@media screen and (max-width: 600px) {
+  .contact__container {
+    padding: 64px 5px;
+  }
+}
 </style>

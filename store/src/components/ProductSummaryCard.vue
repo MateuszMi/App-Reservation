@@ -57,9 +57,7 @@ p.product-name {
   padding: 10px;
   position: absolute;
   top: 35%;
-  left: 0;
-  right: 0;
-  margin: auto;
+  left: 25%;
   cursor: pointer;
 }
 .add:hover {
@@ -84,5 +82,17 @@ p.product-name {
   font-size: 14px;
   margin-left: 5px;
   margin-right: 0;
+}
+@media screen and (max-width: 1000px) {
+  .add {
+    left: 37%;
+    top: 41%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .add {
+    left: 32%;
+    top: 37%;
+  }
 }
 </style>

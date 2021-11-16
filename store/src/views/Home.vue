@@ -8,7 +8,7 @@
         <button class="home--button">SHOP NOW</button>
       </div>
     </div>
-    <p class="itemsLength">{{ items.length }} items</p>
+    <p class="items-length">{{ items.length }} items</p>
     <section v-if="errored">
       <p>
         We're sorry, we're not able to retrieve this information at the moment,
@@ -90,7 +90,7 @@ export default {
 };
 </script>
 <style scoped>
-.itemsLength {
+.items-length {
   text-align: start;
   color: #757575;
   font-size: 15px;
@@ -101,11 +101,7 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   column-gap: 32px;
 }
-@media screen and (max-width: 1028px) {
-  .product__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+
 .image-home {
   width: 100%;
 }
@@ -142,5 +138,30 @@ export default {
 .home--button:hover {
   background-color: gray;
   color: #000;
+}
+@media screen and (max-width: 1000px) {
+  .product__container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px;
+  }
+  .items-length {
+    padding: 0 10px;
+  }
+  .home__container {
+    padding: 0px 10px 10px 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .home--subtitle {
+    display: none;
+  }
+  .home--button {
+    font-size: 15px;
+    padding: 13px 30px;
+    margin-top: 0;
+  }
+  .home--title {
+    font-size: 36px;
+  }
 }
 </style>

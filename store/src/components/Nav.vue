@@ -1,6 +1,7 @@
 <template>
-  <nav>
+  <nav :class="{ show: open }">
     <h1 class="logo">LOGO</h1>
+    <p class="close-mobile-menu" @click="$emit('close-mobile-box')">X</p>
     <div class="nav__menu">
       <a href="#">Shirts</a>
       <a href="#">Dresses</a>
@@ -44,6 +45,7 @@
 import Newsletter from "../components/Newsletter.vue";
 export default {
   components: { Newsletter },
+  props: ["open"],
   name: "Nav",
   data() {
     return {
@@ -141,5 +143,43 @@ a:hover {
 }
 .nav__menu--slide:active .fa-caret-right {
   visibility: visible;
+}
+.close-mobile-menu {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  nav {
+    width: 200px;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: -105vw;
+    padding: 15px;
+    transition: left 1s;
+    z-index: 10;
+    overflow-y: scroll;
+  }
+  nav.show {
+    left: 0;
+  }
+  .close-mobile-menu {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+  }
+  .close-mobile-menu:hover {
+    background-color: gray;
+    width: 22px;
+    height: 32px;
+  }
+  .logo {
+    height: 55px;
+  }
 }
 </style>
