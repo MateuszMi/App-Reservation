@@ -1,7 +1,14 @@
 <template>
   <div>
     <h3>Cart Total: ${{ cardTotal.toFixed(2) }}</h3>
-    <button class="view-product-button">Pay by ...</button>
+
+    <router-link
+      v-if="cardTotal > 1"
+      class="view-product-button"
+      :class="{ active: $route.name === 'Form' }"
+      to="/form"
+      >Go to payment</router-link
+    >
   </div>
 </template>
 <script>
@@ -19,10 +26,15 @@ export default {
 .view-product-button {
   margin-bottom: 50px;
   padding: 15px;
+  width: 150px;
+  margin: 0 auto;
   border: none;
   background-color: black;
   color: white;
   border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 .view-product-button:hover {
   background-color: gray;

@@ -3,11 +3,13 @@
     <div class="card" @click="$emit('view-product', product)">
       <img :src="product.image" class="product-image" />
     </div>
-    <button class="add" @click="addItemToCard()">
+    <button class="add" @click="addItemToCard">
       Buy now<span><i class="fas fa-shopping-cart"></i></span>
     </button>
-    <p class="product-name">{{ product.product_name }}</p>
-    <p class="price">{{ product.price }}</p>
+    <div class="product__box" @click="$emit('view-product', product)">
+      <p class="product-name">{{ product.product_name }}</p>
+      <p class="price">{{ product.price }}</p>
+    </div>
   </div>
 </template>
 <script>
@@ -43,6 +45,9 @@ p.product-name {
   font-size: 15px;
   margin: 15px 0 0 0;
   text-align: left;
+}
+.product__box {
+  cursor: pointer;
 }
 .fa-shopping-car {
   color: white;

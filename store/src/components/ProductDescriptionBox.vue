@@ -15,8 +15,8 @@
         <h3 class="text-center">{{ product.price }}</h3>
 
         <div class="button-container">
-          <button class="remove" @click="removeItemFromCard()">Remove</button>
-          <button class="add" @click="addItemToCard()">Buy now</button>
+          <button class="remove" @click="removeItemFromCard">Remove</button>
+          <button class="add" @click="addItemToCard">Buy now</button>
         </div>
       </div>
     </div>

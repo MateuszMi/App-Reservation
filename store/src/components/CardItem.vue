@@ -7,8 +7,8 @@
         <h4>{{ product.price }}</h4>
         <h4>Total Cost: ${{ costItem.toFixed(2) }}</h4>
         <div>
-          <button class="remove" @click="removeItemFromCard()">Remove</button>
-          <button class="add" @click="addItemToCard()">Add</button>
+          <button class="remove" @click="removeItemFromCard">Remove</button>
+          <button class="add" @click="addItemToCard">Add</button>
         </div>
       </div>
     </div>

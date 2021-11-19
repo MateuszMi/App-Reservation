@@ -2,13 +2,13 @@
   <div>
     <div class="navbar--mobile">
       <h2 class="navbar--mobile-title">LOGO</h2>
-      <i class="fa fa-bars" @click="openMenuMobileBox()"></i>
+      <i class="fa fa-bars" @click="openMenuMobileBox"></i>
     </div>
     <div class="pageContent">
       <Nav
         class="nav"
         :open="open.menu_mobile_box"
-        v-on:close-mobile-box="closeMenuMobileBox()"
+        @close-mobile-box="closeMenuMobileBox"
       />
       <div class="nav__link">
         <router-link
@@ -23,6 +23,7 @@
             <i class="fas fa-shopping-cart"></i>
           </div>
         </router-link>
+
         <i class="fas fa-search"></i>
       </div>
       <router-view class="router-view" />

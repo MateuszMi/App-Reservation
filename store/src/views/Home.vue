@@ -21,12 +21,12 @@
         v-for="product in items"
         :key="product.id"
         :product="product"
-        v-on:view-product="viewProduct($event)"
+        @view-product="viewProduct($event)"
       />
       <ProductDescriptionBox
         :product="product"
         :active="active.product_box"
-        v-on:close-product-box="closeProductBox()"
+        @close-product-box="closeProductBox"
       />
     </section>
     <Subscribe />
