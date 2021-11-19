@@ -31,10 +31,10 @@
     <div class="nav__contact">
       <a href="#contact" class="nav__contact--item">Contact</a>
 
-      <a class="nav__contact--item" @click="openNewsletterBox()">Newsletter</a>
+      <a class="nav__contact--item" @click="openNewsletterBox">Newsletter</a>
       <Newsletter
         :active="active.newsletter_box"
-        v-on:close-newsletter-box="closeNewsletterBox()"
+        @close-newsletter-box="closeNewsletterBox"
       />
       <a href="#subscribe" class="nav__contact--item">Subscribe</a>
     </div>
