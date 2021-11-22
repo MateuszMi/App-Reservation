@@ -2,78 +2,35 @@
   <div>
     <h1>Shipping information</h1>
     <form action="#">
-      <label class="information-name"
+      <label class="information-name required"
         >Full name:
-        <input
-          class="information-name-first-name"
-          :class="{ show: open }"
-          type="text"
-          placeholder="First Name"
-          name="first-name"
-          required
-        />
-        <input
-          class="information-name-last-name"
-          :class="{ show: open }"
-          type="text"
-          placeholder="Last Name"
-          name="last-name"
-          required
-        />
+        <ShippingFullName />
       </label>
-      <label class="information-address">
-        Shipping Address:
-        <input
-          class="information-address-street"
-          :class="{ show: open }"
-          type="text"
-          placeholder="Street Address"
-          required
-        />
-        <input
-          class="information-address-city"
-          :class="{ show: open }"
-          type="text"
-          placeholder="City"
-          required
-        />
-        <input
-          class="information-address-state"
-          :class="{ show: open }"
-          type="text"
-          placeholder="State"
-          required
-        />
-        <input
-          class="information-address-code"
-          :class="{ show: open }"
-          type="text"
-          placeholder="Zip Code  xx-xxx"
-          v-model="zipCode"
-          required
-        />
+      <label class="information-address required"
+        >Shipping Address:
+        <ShippingAddress />
       </label>
-      <label class="information-contact"
+      <label class="information-contact required"
         >Contact Number:
         <input
           class="information-contact-phone"
-          :class="{ show: open }"
           type="text"
           placeholder="+46 123456789"
           v-model="contactNumber"
+          required
         />
       </label>
-      <label
+      <label class="required"
         >E-mail:<input
           class="information-contact-email"
-          :class="{ show: open }"
           type="email"
           placeholder="shipping@example.com"
           v-model="email"
+          required
       /></label>
+
       <span v-if="msg.email">Email is wrong!</span>
       <span v-if="msg.contactNumber">Contact number is wrong!</span>
-      <span v-if="msg.zipCode">Zip-code is wrong!</span>
 
       <label class="second-addres"
         >Other Address:
@@ -84,54 +41,24 @@
         for="checkbox"
         class="information-name-other"
         >Full name:
-        <input
-          class="information-name-first-name"
-          type="text"
-          placeholder="First Name"
-          name="first-name"
-        />
-        <input
-          class="information-name-last-name"
-          type="text"
-          placeholder="Last Name"
-          name="last-name"
-        />
+        <ShippingFullNameOther />
       </label>
-
       <label
         for="checkbox"
         class="information-address-other"
         :class="{ show: open }"
       >
         Shipping Address:
-        <input
-          class="information-address-street"
-          type="text"
-          placeholder="Street Address"
-        />
-        <input
-          class="information-address-city"
-          type="text"
-          placeholder="City"
-        />
-        <input
-          class="information-address-state"
-          type="text"
-          placeholder="State"
-        />
-        <input
-          class="information-address-code"
-          type="text"
-          placeholder="Zip Code  xx-xxx"
-        />
+        <ShippingAddressOther />
       </label>
 
-      <label :class="{ show: open }" class="information-contact-other"
+      <label class="information-contact-other" :class="{ show: open }"
         >Contact Number:
         <input
           class="information-contact-phone"
           type="text"
           placeholder="+46 123456789"
+          v-model="contactNumberOther"
         />
       </label>
       <label :class="{ show: open }" class="information-contact-other"
@@ -140,10 +67,10 @@
           type="email"
           placeholder="shipping@example.com"
       /></label>
+
       <label id="payment">Payment:</label>
       <label class="payment-item">
         <img class="transfer-bank" src="../assets/Transfer-bank.jpg" />
-
         <img
           class="card"
           :class="{ show: active }"
@@ -154,16 +81,11 @@
       </label>
       <label class="credit-card" for="radio" :class="{ show: active }">
         <label class="card-number"
-          >Number Card:
-          <input
-            type="text"
-            v-model="cardNumber"
-            required
-            placeholder="xxxx-xxxx-xxxx-xxxx"
+          >Number Card: <input type="text" v-model="cardNumber" required
         /></label>
 
         <label class="cvv-number"
-          >CVV:<input type="number" v-model="cvv" required
+          >CVV:<input type="text" v-model="cvv" required
         /></label>
         <label class="valid-number"
           >Valid thru:<input
@@ -172,13 +94,36 @@
             placeholder="xx/xx"
         /></label> </label
       ><span v-if="msg.cvv">{{ msg.cvv }}</span>
-      <input type="submit" class="submit-button" value="Send" />
+      <input
+        v-if="!msg.cvv && !msg.email"
+        type="submit"
+        class="submit-button"
+        value="Send"
+      />
     </form>
   </div>
 </template>
 
 <script>
+import {
+  validateCvv,
+  validateCardNumber,
+  validateEmail,
+  validateContactNumber,
+  validateValidCard,
+} from "../validator/validator";
+import ShippingFullName from "../components/ShippingFullName.vue";
+import ShippingAddress from "../components/ShippingAddress.vue";
+import ShippingAddressOther from "../components/ShippingAddressOther.vue";
+import ShippingFullNameOther from "../components/ShippingFullNameOther.vue";
+
 export default {
+  components: {
+    ShippingFullName,
+    ShippingAddress,
+    ShippingAddressOther,
+    ShippingFullNameOther,
+  },
   data() {
     return {
       checkbox: false,
@@ -187,7 +132,7 @@ export default {
       email: "",
       cvv: "",
       cardNumber: "",
-      zipCode: "",
+      contactNumberOther: "",
       contactNumber: "",
       validCard: "",
       msg: [],
@@ -202,10 +147,6 @@ export default {
       this.cardNumber = value;
       this.validateCardNumber(value);
     },
-    zipCode(value) {
-      this.zipCode = value;
-      this.validateZipCode(value);
-    },
     email(value) {
       this.email = value;
       this.validateEmail(value);
@@ -218,7 +159,12 @@ export default {
       this.validCard = value;
       this.validateValidCard(value);
     },
+    contactNumberOther(value) {
+      this.contactNumberOther = value;
+      this.validateContactNumber(value);
+    },
   },
+
   methods: {
     openPaymentBox() {
       this.active = !this.active;
@@ -226,59 +172,19 @@ export default {
     openOtherAddress() {
       this.open = !this.open;
     },
-    validateCvv(value) {
-      let re = RegExp(/[0-9][0-9][0-9]/);
-      if (re.test(value) && value < 1000) {
-        this.msg["cvv"] = "";
-      } else {
-        this.msg["cvv"] = "Must be 3 characters!";
-      }
-    },
-    validateCardNumber(value) {
-      let re = RegExp(
-        /[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$/
-      );
-      if (re.test(String(value))) {
-        this.msg["cvv"] = "";
-      } else {
-        this.msg["cvv"] = "Number is wrong!";
-      }
-    },
-    validateZipCode(value) {
-      let re = RegExp(/[0-9][0-9]-[0-9][0-9][0-9]$/);
-      if (re.test(String(value))) {
-        this.msg["zipCode"] = "";
-      } else {
-        this.msg["zipCode"] = "Number is wrong!";
-      }
-    },
-    validateEmail(value) {
-      const re =
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (re.test(String(value).toLowerCase())) {
-        this.msg["email"] = "";
-      } else {
-        this.msg["email"] = "Wrong email!";
-      }
-    },
-    validateContactNumber(value) {
-      let re = RegExp(
-        /[+][0-9][0-9][ ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/
-      );
-      if (re.test(String(value))) {
-        this.msg["contactNumber"] = "";
-      } else {
-        this.msg["contactNumber"] = "Number is wrong!";
-      }
-    },
-    validateValidCard(value) {
-      let re = RegExp(/[0-1][0-9][/][0-9][0-9]$/);
-      if (re.test(String(value))) {
-        this.msg["cvv"] = "";
-      } else {
-        this.msg["cvv"] = "Wrong valid card!";
-      }
-    },
+
+    validateCvv,
+    validateCardNumber,
+    validateEmail,
+    validateContactNumber,
+    validateValidCard,
+  },
+  markFieldAsError(field, show) {
+    if (show) {
+      field.classList.add("field-error");
+    } else {
+      field.classList.remove("field-error");
+    }
   },
 };
 </script>
@@ -315,7 +221,9 @@ input {
   padding: 0 10px;
   margin: 15px 0;
 }
-
+.required::before {
+  content: "*";
+}
 .information-name-other {
   display: none;
 }
@@ -334,69 +242,19 @@ input {
 .information-contact-other.show {
   display: block;
 }
-.information-name-first-name {
-  margin: 0 20px;
-}
-.information-name-first-name.show {
-  text-decoration-line: line-through;
-}
-
-.information-name-last-name.show {
-  text-decoration-line: line-through;
-}
-.information-address-street {
-  margin: 0 10px;
-  width: 70%;
-}
-.information-address-street.show {
-  text-decoration-line: line-through;
-}
-
-.information-address-state {
-  margin: 0 20px;
-}
-.information-address-state.show {
-  text-decoration-line: line-through;
-}
-.information-address-city.show {
-  text-decoration-line: line-through;
-}
-.information-address-city {
-  width: 70%;
-  margin: 20px 20px 0px 145px;
-}
-.information-address-state {
-  margin: 0 20px 0 145px;
-  width: 45%;
-}
-.information-address-code {
-  width: 20%;
-  -moz-appearance: textfield;
-}
-.information-address-code.show {
-  text-decoration-line: line-through;
-}
-.information-address-code::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 .information-contact-phone {
-  margin-left: 20px;
+  margin-left: 15px;
   -moz-appearance: textfield;
 }
-.information-contact-phone.show {
-  text-decoration-line: line-through;
-}
+
 .information-contact-phone::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 .information-contact-email {
-  margin-left: 95px;
+  margin-left: 90px;
 }
-.information-contact-email.show {
-  text-decoration-line: line-through;
-}
+
 .submit-button {
   background-color: black;
   color: white;
