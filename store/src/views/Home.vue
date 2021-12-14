@@ -1,57 +1,27 @@
 <template>
   <div>
-    <div class="home__container">
-      <img src="../assets/home.png" class="image-home" />
-      <div class="home__box">
-        <h2 class="home--title">New arrivals</h2>
-        <h3 class="home--subtitle">COLLECTION 2016</h3>
-        <button class="home--button">SHOP NOW</button>
+    <div class="contaier">
+      <div class="reservation">
+        <div class="numberSeats">
+          <p>Liczba miejsc:</p>
+          <input type="number" id="numbersReservation" />
+        </div>
+        <div>
+          <input type="checkbox" class="checkbox" />
+          <label class="checkbox-info">
+            Czy miejsca mają być obok siebie?
+          </label>
+        </div>
+        <input type="submit" value="Wybierz miejsca" class="submit" />
       </div>
     </div>
-    <p class="items-length">{{ items.length }} items</p>
-    <section v-if="errored">
-      <p>
-        We're sorry, we're not able to retrieve this information at the moment,
-        please try back later
-      </p>
-    </section>
-    <section v-else class="product__container">
-      <div v-if="loading">Loading...</div>
-      <ProductSummaryCard
-        v-for="product in items"
-        :key="product.id"
-        :product="product"
-        @view-product="viewProduct($event)"
-      />
-      <ProductDescriptionBox
-        :product="product"
-        :active="active.product_box"
-        @close-product-box="closeProductBox"
-      />
-    </section>
-    <Subscribe />
-    <Contact />
-    <Footer />
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import ProductSummaryCard from "../components/ProductSummaryCard.vue";
-import ProductDescriptionBox from "../components/ProductDescriptionBox.vue";
-import Subscribe from "../components/Subscribe.vue";
-import Contact from "../components/Contact.vue";
-import Footer from "../components/Footer.vue";
-
 export default {
   name: "Home",
-  components: {
-    ProductSummaryCard,
-    ProductDescriptionBox,
-    Subscribe,
-    Contact,
-    Footer,
-  },
+
   data() {
     return {
       items: [],
@@ -73,23 +43,57 @@ export default {
       this.active.product_box = false;
     },
   },
-  mounted() {
-    setTimeout(() => {
-      axios
-        .get("http://www.mocky.io/v2/5ab0d1882e0000e60ae8b7a6")
-        .then((response) => {
-          this.items = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-          this.errored = true;
-        })
-        .finally(() => (this.loading = false));
-    }, 500);
-  },
 };
 </script>
 <style scoped>
+.contaier {
+  max-width: 300px;
+  margin: auto;
+}
+.numberSeats {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  align-items: center;
+  font-size: 15px;
+}
+
+.reservation {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#numbersReservation {
+  border: solid black 2px;
+  font-size: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+.checkbox {
+  margin-right: 15px;
+}
+
+.submit {
+  background-color: white;
+  border: solid black 2px;
+  padding: 20px 50px;
+  width: 100%;
+  margin-top: 25px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: orange;
+  border: 2px solid #e65c00;
+}
+
 .items-length {
   text-align: start;
   color: #757575;

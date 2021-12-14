@@ -1,21 +1,12 @@
 <template>
   <div>
-    <div class="navbar--mobile">
-      <h2 class="navbar--mobile-title">LOGO</h2>
-      <i class="fa fa-bars" @click="openMenuMobileBox"></i>
-    </div>
     <div class="pageContent">
-      <Nav
-        class="nav"
-        :open="open.menu_mobile_box"
-        @close-mobile-box="closeMenuMobileBox"
-      />
       <div class="nav__link">
         <router-link
           id="link-name"
           :class="{ active: $route.name === 'Home' }"
           to="/"
-          >Jeans</router-link
+          >Rezerwacja miejsc</router-link
         >
         <router-link :class="{ active: $route.name === 'Card' }" to="/card">
           <div class="card-total">
@@ -23,18 +14,13 @@
             <i class="fas fa-shopping-cart"></i>
           </div>
         </router-link>
-
-        <i class="fas fa-search"></i>
       </div>
       <router-view class="router-view" />
     </div>
   </div>
 </template>
 <script>
-import Nav from "../src/components/Nav.vue";
-
 export default {
-  components: { Nav },
   data() {
     return {
       open: {
@@ -77,9 +63,6 @@ export default {
   grid-column: 2;
 }
 .pageContent {
-  display: grid;
-  grid-template-columns: minmax(auto, 235px) minmax(auto, 950px);
-  grid-template-rows: 85px auto;
   margin: 0 auto;
   max-width: 1200px;
   column-gap: 32px;
