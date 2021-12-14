@@ -5,7 +5,8 @@ const seats = [
       x: 0,
       y: 2,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s03",
@@ -13,7 +14,8 @@ const seats = [
       x: 0,
       y: 3,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s04",
@@ -21,7 +23,8 @@ const seats = [
       x: 0,
       y: 4,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s06",
@@ -29,7 +32,8 @@ const seats = [
       x: 0,
       y: 6,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s07",
@@ -37,7 +41,8 @@ const seats = [
       x: 0,
       y: 7,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s08",
@@ -45,7 +50,9 @@ const seats = [
       x: 0,
       y: 8,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s09",
@@ -53,7 +60,9 @@ const seats = [
       x: 0,
       y: 9,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s011",
@@ -61,7 +70,8 @@ const seats = [
       x: 0,
       y: 11,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s012",
@@ -69,7 +79,8 @@ const seats = [
       x: 0,
       y: 12,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s013",
@@ -77,7 +88,8 @@ const seats = [
       x: 0,
       y: 13,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s014",
@@ -85,7 +97,8 @@ const seats = [
       x: 0,
       y: 14,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s12",
@@ -93,7 +106,8 @@ const seats = [
       x: 1,
       y: 2,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s13",
@@ -101,7 +115,8 @@ const seats = [
       x: 1,
       y: 3,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s14",
@@ -109,7 +124,8 @@ const seats = [
       x: 1,
       y: 4,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s16",
@@ -117,7 +133,8 @@ const seats = [
       x: 1,
       y: 6,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s17",
@@ -125,7 +142,8 @@ const seats = [
       x: 1,
       y: 7,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s18",
@@ -133,7 +151,8 @@ const seats = [
       x: 1,
       y: 8,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s19",
@@ -141,7 +160,8 @@ const seats = [
       x: 1,
       y: 9,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s111",
@@ -149,7 +169,8 @@ const seats = [
       x: 1,
       y: 11,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s112",
@@ -157,7 +178,8 @@ const seats = [
       x: 1,
       y: 12,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s113",
@@ -165,7 +187,8 @@ const seats = [
       x: 1,
       y: 13,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s114",
@@ -173,7 +196,8 @@ const seats = [
       x: 1,
       y: 14,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s22",
@@ -181,7 +205,8 @@ const seats = [
       x: 2,
       y: 2,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s23",
@@ -189,7 +214,8 @@ const seats = [
       x: 2,
       y: 3,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s24",
@@ -197,7 +223,8 @@ const seats = [
       x: 2,
       y: 4,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s26",
@@ -205,7 +232,8 @@ const seats = [
       x: 2,
       y: 6,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s27",
@@ -213,7 +241,8 @@ const seats = [
       x: 2,
       y: 7,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s28",
@@ -221,7 +250,8 @@ const seats = [
       x: 2,
       y: 8,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s29",
@@ -229,7 +259,8 @@ const seats = [
       x: 2,
       y: 9,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s211",
@@ -237,7 +268,8 @@ const seats = [
       x: 2,
       y: 11,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s212",
@@ -245,7 +277,8 @@ const seats = [
       x: 2,
       y: 12,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s213",
@@ -253,7 +286,9 @@ const seats = [
       x: 2,
       y: 13,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s214",
@@ -261,7 +296,9 @@ const seats = [
       x: 2,
       y: 14,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s30",
@@ -269,7 +306,9 @@ const seats = [
       x: 3,
       y: 0,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s31",
@@ -277,7 +316,9 @@ const seats = [
       x: 3,
       y: 1,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s32",
@@ -285,7 +326,8 @@ const seats = [
       x: 3,
       y: 2,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s33",
@@ -293,7 +335,8 @@ const seats = [
       x: 3,
       y: 3,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s34",
@@ -301,7 +344,8 @@ const seats = [
       x: 3,
       y: 4,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s36",
@@ -309,7 +353,9 @@ const seats = [
       x: 3,
       y: 6,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s37",
@@ -317,7 +363,8 @@ const seats = [
       x: 3,
       y: 7,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s38",
@@ -325,7 +372,8 @@ const seats = [
       x: 3,
       y: 8,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s39",
@@ -333,7 +381,9 @@ const seats = [
       x: 3,
       y: 9,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s311",
@@ -341,7 +391,9 @@ const seats = [
       x: 3,
       y: 11,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s312",
@@ -349,7 +401,9 @@ const seats = [
       x: 3,
       y: 12,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s313",
@@ -357,7 +411,8 @@ const seats = [
       x: 3,
       y: 13,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s314",
@@ -365,7 +420,8 @@ const seats = [
       x: 3,
       y: 14,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s40",
@@ -373,7 +429,9 @@ const seats = [
       x: 4,
       y: 0,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s41",
@@ -381,7 +439,9 @@ const seats = [
       x: 4,
       y: 1,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s42",
@@ -389,7 +449,8 @@ const seats = [
       x: 4,
       y: 2,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s43",
@@ -397,7 +458,8 @@ const seats = [
       x: 4,
       y: 3,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s44",
@@ -405,7 +467,8 @@ const seats = [
       x: 4,
       y: 4,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s46",
@@ -413,7 +476,8 @@ const seats = [
       x: 4,
       y: 6,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s47",
@@ -421,7 +485,8 @@ const seats = [
       x: 4,
       y: 7,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s48",
@@ -429,7 +494,9 @@ const seats = [
       x: 4,
       y: 8,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s49",
@@ -437,7 +504,9 @@ const seats = [
       x: 4,
       y: 9,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s411",
@@ -445,7 +514,8 @@ const seats = [
       x: 4,
       y: 11,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s412",
@@ -453,7 +523,8 @@ const seats = [
       x: 4,
       y: 12,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s413",
@@ -461,7 +532,8 @@ const seats = [
       x: 4,
       y: 13,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s414",
@@ -469,7 +541,8 @@ const seats = [
       x: 4,
       y: 14,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s50",
@@ -477,7 +550,8 @@ const seats = [
       x: 5,
       y: 0,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s51",
@@ -485,7 +559,8 @@ const seats = [
       x: 5,
       y: 1,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s52",
@@ -493,7 +568,8 @@ const seats = [
       x: 5,
       y: 2,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s53",
@@ -501,7 +577,8 @@ const seats = [
       x: 5,
       y: 3,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s54",
@@ -509,7 +586,8 @@ const seats = [
       x: 5,
       y: 4,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s60",
@@ -517,7 +595,9 @@ const seats = [
       x: 6,
       y: 0,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s61",
@@ -525,7 +605,9 @@ const seats = [
       x: 6,
       y: 1,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s62",
@@ -533,7 +615,8 @@ const seats = [
       x: 6,
       y: 2,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s63",
@@ -541,7 +624,8 @@ const seats = [
       x: 6,
       y: 3,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s64",
@@ -549,7 +633,9 @@ const seats = [
       x: 6,
       y: 4,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s66",
@@ -557,7 +643,9 @@ const seats = [
       x: 6,
       y: 6,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s67",
@@ -565,7 +653,9 @@ const seats = [
       x: 6,
       y: 7,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s68",
@@ -573,7 +663,8 @@ const seats = [
       x: 6,
       y: 8,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s611",
@@ -581,7 +672,9 @@ const seats = [
       x: 6,
       y: 11,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s612",
@@ -589,7 +682,8 @@ const seats = [
       x: 6,
       y: 12,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s613",
@@ -597,7 +691,8 @@ const seats = [
       x: 6,
       y: 13,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s614",
@@ -605,7 +700,8 @@ const seats = [
       x: 6,
       y: 14,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s70",
@@ -613,7 +709,8 @@ const seats = [
       x: 7,
       y: 0,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s71",
@@ -621,7 +718,8 @@ const seats = [
       x: 7,
       y: 1,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s72",
@@ -629,7 +727,8 @@ const seats = [
       x: 7,
       y: 2,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s73",
@@ -637,7 +736,8 @@ const seats = [
       x: 7,
       y: 3,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s74",
@@ -645,7 +745,8 @@ const seats = [
       x: 7,
       y: 4,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s76",
@@ -653,7 +754,8 @@ const seats = [
       x: 7,
       y: 6,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s77",
@@ -661,7 +763,8 @@ const seats = [
       x: 7,
       y: 7,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s78",
@@ -669,7 +772,8 @@ const seats = [
       x: 7,
       y: 8,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s79",
@@ -677,7 +781,8 @@ const seats = [
       x: 7,
       y: 9,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s711",
@@ -685,7 +790,8 @@ const seats = [
       x: 7,
       y: 11,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s712",
@@ -693,7 +799,8 @@ const seats = [
       x: 7,
       y: 12,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s713",
@@ -701,7 +808,8 @@ const seats = [
       x: 7,
       y: 13,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s714",
@@ -709,7 +817,8 @@ const seats = [
       x: 7,
       y: 14,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s80",
@@ -717,7 +826,8 @@ const seats = [
       x: 8,
       y: 0,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s81",
@@ -725,7 +835,8 @@ const seats = [
       x: 8,
       y: 1,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s82",
@@ -733,7 +844,8 @@ const seats = [
       x: 8,
       y: 2,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s83",
@@ -741,7 +853,8 @@ const seats = [
       x: 8,
       y: 3,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s84",
@@ -749,7 +862,8 @@ const seats = [
       x: 8,
       y: 4,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s86",
@@ -757,7 +871,8 @@ const seats = [
       x: 8,
       y: 6,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s87",
@@ -765,7 +880,9 @@ const seats = [
       x: 8,
       y: 7,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s88",
@@ -773,7 +890,9 @@ const seats = [
       x: 8,
       y: 8,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s89",
@@ -781,7 +900,8 @@ const seats = [
       x: 8,
       y: 9,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s811",
@@ -789,7 +909,9 @@ const seats = [
       x: 8,
       y: 11,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s812",
@@ -797,7 +919,8 @@ const seats = [
       x: 8,
       y: 12,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s813",
@@ -805,7 +928,8 @@ const seats = [
       x: 8,
       y: 13,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s814",
@@ -813,7 +937,8 @@ const seats = [
       x: 8,
       y: 14,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s90",
@@ -821,7 +946,9 @@ const seats = [
       x: 9,
       y: 0,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s91",
@@ -829,7 +956,9 @@ const seats = [
       x: 9,
       y: 1,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s92",
@@ -837,7 +966,9 @@ const seats = [
       x: 9,
       y: 2,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s93",
@@ -845,7 +976,9 @@ const seats = [
       x: 9,
       y: 3,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s94",
@@ -853,7 +986,8 @@ const seats = [
       x: 9,
       y: 4,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s96",
@@ -861,7 +995,8 @@ const seats = [
       x: 9,
       y: 6,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s97",
@@ -869,7 +1004,8 @@ const seats = [
       x: 9,
       y: 7,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s98",
@@ -877,7 +1013,8 @@ const seats = [
       x: 9,
       y: 8,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s99",
@@ -885,7 +1022,8 @@ const seats = [
       x: 9,
       y: 9,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s911",
@@ -893,7 +1031,9 @@ const seats = [
       x: 9,
       y: 11,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s912",
@@ -901,7 +1041,9 @@ const seats = [
       x: 9,
       y: 12,
     },
-    reserved: true,
+    blocked: true,
+
+    reservation: false,
   },
   {
     id: "s913",
@@ -909,7 +1051,8 @@ const seats = [
       x: 9,
       y: 13,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
   {
     id: "s914",
@@ -917,7 +1060,8 @@ const seats = [
       x: 9,
       y: 14,
     },
-    reserved: false,
+    blocked: false,
+    reservation: false,
   },
 ];
 
