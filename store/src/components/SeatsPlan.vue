@@ -1,13 +1,14 @@
 <template>
   <div>
     <h1>Twoja rezerwacja</h1>
+
     <div class="container">
       <div
         class="seats"
         v-for="seat in seats"
         :class="
           (seat.blocked ? 'reserved-back' : '') ||
-          (seat.reservation ? 'choice' : '')
+          (seat.reservation ? 'choice-back' : '')
         "
         :key="seat.id"
         :id="seat.id"
@@ -29,6 +30,7 @@
 
 <script>
 import seats from "../store/db";
+
 export default {
   data() {
     return {
@@ -39,11 +41,7 @@ export default {
     selectSeat(event) {
       let seat = this.seats.find((seat) => seat.id === event.target.id);
       seat.reservation = !seat.reservation;
-    },
-  },
-  computed: {
-    products() {
-      return this.$store.getters.cardItems;
+      this.$store.commit("addSeats", seat);
     },
   },
 };
@@ -82,7 +80,7 @@ export default {
 .reserved-back {
   background-color: gray;
 }
-.choice {
+.choice-back {
   background-color: orange;
 }
 .available-back {
