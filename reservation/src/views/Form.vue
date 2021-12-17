@@ -272,7 +272,6 @@ input {
 .credit-card.show {
   display: block;
 }
-
 .card-number input {
   -moz-appearance: textfield;
   margin-left: 10px;
