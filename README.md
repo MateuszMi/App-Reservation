@@ -1,1 +1,1 @@
-cd store
+cd reservation

@@ -1,4 +1,4 @@
-# store
+# reservation
 
 ## Project setup
 ```
