@@ -2,32 +2,34 @@
   <label>
     <input
       class="information-address-street"
-      placeholder="Street Address"
+      placeholder="Ulica"
       v-model="street"
       required
     />
     <input
       class="information-address-city"
-      placeholder="City"
+      placeholder="Miasto"
       v-model="city"
       required
     />
     <input
       class="information-address-state"
-      placeholder="State"
+      placeholder="Województwo"
       v-model="state"
       required
     />
     <input
       class="information-address-code"
-      placeholder="Zip-code xx-xxx"
+      placeholder="Kod pocztowy xx-xxx"
       v-model="zipCode"
       required
     /><br />
 
-    <span v-if="msg.address">Wrong address!</span>
-    <span v-if="msg.city">Wrong city!</span>
-    <span v-if="msg.zipCode">Zip-code is wrong!</span>
+    <span v-if="msg.address">Zły addres!</span>
+    <br />
+    <span v-if="msg.city">Złe miasto!</span>
+    <br />
+    <span v-if="msg.zipCode">Kod pocztowy jest zły!</span>
   </label>
 </template>
 <script>
@@ -86,31 +88,50 @@ input {
   padding: 0 10px;
   margin: 15px 0;
 }
+@media screen and (max-width: 650px) {
+  input {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .information-address-street {
-  margin: 0 5px;
-  width: 70.5%;
+  margin: 0 25px;
+  width: 70%;
 }
-.information-address-street.show {
-  text-decoration-line: line-through;
-}
-.information-address-city.show {
-  text-decoration-line: line-through;
-}
+
 .information-address-city {
   width: 69.5%;
   margin: 20px 20px 0px 145px;
 }
+@media screen and (max-width: 650px) {
+  .information-address-city {
+    width: 69.5%;
+    margin: 20px 20px 0px 28px;
+  }
+}
 .information-address-state {
-  margin: 0 20px;
-  margin: 0 20px 0 145px;
+  margin: 20px 20px 0 145px;
   width: 45%;
 }
+@media screen and (max-width: 650px) {
+  .information-address-state {
+    margin: 20px 20px 0 28px;
+    width: 69.5%;
+  }
+}
+
 .information-address-state.show {
   text-decoration-line: line-through;
 }
 .information-address-code {
   width: 21%;
   -moz-appearance: textfield;
+}
+@media screen and (max-width: 650px) {
+  .information-address-code {
+    width: 50%;
+    margin: 20px 20px 0 28px;
+  }
 }
 .information-address-code.show {
   text-decoration-line: line-through;

@@ -9,15 +9,15 @@
     </div>
     <form action="#">
       <label class="information-name required"
-        >Full name:
+        >Imię i nazwisko:
         <ShippingFullName />
       </label>
       <label class="information-address required"
-        >Shipping Address:
+        >Adres dostawy:
         <ShippingAddress />
       </label>
       <label class="information-contact required"
-        >Contact Number:
+        >Numer kontaktowy:
         <input
           class="information-contact-phone"
           type="text"
@@ -35,10 +35,10 @@
           required
       /></label>
 
-      <span v-if="msg.email">Email is wrong!</span>
-      <span v-if="msg.contactNumber">Contact number is wrong!</span>
+      <span v-if="msg.email">Email jest zły!</span>
+      <span v-if="msg.contactNumber">Kontakt jest zły!</span>
       <div class="payment-box">
-        <label id="payment">Payment:</label>
+        <label id="payment">Metody płatności:</label>
         <label class="payment-item">
           <img
             class="card"
@@ -50,14 +50,14 @@
       </div>
       <label class="credit-card" for="radio" :class="{ show: active }">
         <label class="card-number"
-          >Number Card: <input type="text" v-model="cardNumber" required
+          >Numer katry: <input type="text" v-model="cardNumber" required
         /></label>
 
         <label class="cvv-number"
           >CVV:<input type="text" v-model="cvv" required
         /></label>
         <label class="valid-number"
-          >Valid thru:<input
+          >Data ważności:<input
             type="text"
             v-model="validCard"
             placeholder="xx/xx"
@@ -216,7 +216,7 @@ input {
 }
 
 .information-contact-phone {
-  margin-left: 22px;
+  margin-left: 5px;
   -moz-appearance: textfield;
 }
 
@@ -264,14 +264,23 @@ input {
 .card-number {
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 90%;
 }
+.credit-card {
+  display: none;
+}
+.credit-card.show {
+  display: block;
+}
+
 .card-number input {
   -moz-appearance: textfield;
+  margin-left: 10px;
 }
 .cvv-number input {
   width: 100px;
   margin-right: 20px;
+  margin-left: 10px;
   -moz-appearance: textfield;
 }
 .card-number input::-webkit-inner-spin-button {
@@ -284,11 +293,24 @@ input {
 }
 .valid-number input {
   width: 175px;
+  margin-left: 10px;
 }
-.credit-card {
-  display: none;
-}
-.credit-card.show {
-  display: block;
+@media screen and (max-width: 650px) {
+  .card-number {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .card-number input {
+    width: 70%;
+  }
+  .cvv-number {
+    display: flex;
+    flex-direction: column;
+  }
+  .valid-number {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>

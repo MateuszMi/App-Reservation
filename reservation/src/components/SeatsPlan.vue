@@ -16,7 +16,7 @@
       />
     </div>
 
-    <div class="container">
+    <div class="container-info">
       <div class="seats available"></div>
       <p class="info_availble">Miejsca dostępne</p>
       <div class="seats reserved reserved-back"></div>
@@ -76,12 +76,46 @@ export default {
   margin: 30px 0;
 }
 
+.container-info {
+  display: grid;
+  grid-gap: 13px;
+  grid-template-columns: repeat(15, 70px);
+  justify-content: center;
+  margin: 30px 0;
+}
 .seats {
   border: 1px solid black;
   height: 70px;
   cursor: pointer;
 }
-
+@media screen and (max-width: 1300px) {
+  .seats {
+    height: 50px;
+  }
+  .container {
+    grid-gap: 5px;
+    grid-template-columns: repeat(15, 50px);
+  }
+  .container-info {
+    grid-gap: 5px;
+    grid-template-columns: repeat(15, 50px);
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(15, 5%);
+  }
+  .seats {
+    height: 30px;
+  }
+  .container-info {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: 0 0 0 50px;
+    grid-gap: 0px;
+  }
+}
 .available,
 .reserved,
 .choice,

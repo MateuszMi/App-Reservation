@@ -3,7 +3,7 @@
     <input
       type="text"
       class="information-name-first-name"
-      placeholder="First Name"
+      placeholder="Imię"
       name="first-name"
       v-model="firstName"
       required
@@ -11,13 +11,13 @@
     <input
       type="text"
       class="information-name-last-name"
-      placeholder="Last Name"
+      placeholder="Nazwisko"
       name="last-name"
       v-model="lastName"
       required
     />
     <br />
-    <span v-if="msg.fullName">Wrong name!</span>
+    <span v-if="msg.fullName">Złe imię lub nazwisko!</span>
   </label>
 </template>
 <script>
@@ -53,14 +53,20 @@ span {
   color: red;
 }
 input {
-  width: 35%;
+  width: 33.3%;
   height: 30px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.24);
   border-radius: 5px;
   padding: 0 10px;
   margin: 15px 0;
 }
-
+@media screen and (max-width: 650px) {
+  input {
+    width: 50%;
+    display: flex;
+    margin: 17px;
+  }
+}
 .information-name-first-name {
   margin: 0 18px;
 }
