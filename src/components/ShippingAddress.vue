@@ -113,12 +113,6 @@ input {
   margin: 20px 20px 0 145px;
   width: 45%;
 }
-@media screen and (max-width: 650px) {
-  .information-address-state {
-    margin: 20px 20px 0 28px;
-    width: 69.5%;
-  }
-}
 
 .information-address-state.show {
   text-decoration-line: line-through;
@@ -139,5 +133,14 @@ input {
 .information-address-code::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+@media screen and (max-width: 650px) {
+  .information-address-state {
+    margin: 20px 20px 0 28px;
+    width: 69.5%;
+  }
+  .information-address-street {
+    margin-top: 10px;
+  }
 }
 </style>

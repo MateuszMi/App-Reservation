@@ -139,7 +139,7 @@ p {
   background-color: gray;
   color: black;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .information__title {
     font-size: 20px;
   }
@@ -149,6 +149,9 @@ p {
     right: 50px;
   }
   p {
+    text-align: center;
+  }
+  .btn-payment {
     text-align: center;
   }
 }

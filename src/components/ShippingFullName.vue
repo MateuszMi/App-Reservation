@@ -60,13 +60,7 @@ input {
   padding: 0 10px;
   margin: 15px 0;
 }
-@media screen and (max-width: 650px) {
-  input {
-    width: 50%;
-    display: flex;
-    margin: 17px;
-  }
-}
+
 .information-name-first-name {
   margin: 0 18px;
 }
@@ -76,5 +70,15 @@ input {
 
 .information-name-last-name.show {
   text-decoration-line: line-through;
+}
+@media screen and (max-width: 650px) {
+  input {
+    width: 50%;
+    display: flex;
+    margin: 17px;
+  }
+  .information-name-first-name {
+    margin-top: 10px;
+  }
 }
 </style>

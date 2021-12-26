@@ -101,21 +101,6 @@ export default {
     grid-template-columns: repeat(15, 50px);
   }
 }
-@media screen and (max-width: 900px) {
-  .container {
-    grid-template-columns: repeat(15, 5%);
-  }
-  .seats {
-    height: 30px;
-  }
-  .container-info {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    margin: 0 0 0 50px;
-    grid-gap: 0px;
-  }
-}
 .available,
 .reserved,
 .choice,
@@ -150,5 +135,32 @@ export default {
   border: none;
   color: white;
   font-weight: bold;
+}
+@media screen and (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(15, 5%);
+  }
+  .seats {
+    height: 30px;
+  }
+  .container-info {
+    display: flex;
+  }
+  .available {
+    width: 30px;
+  }
+  .choice {
+    width: 30px;
+  }
+  .reserved {
+    width: 30px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .btn-reserved {
+    font-size: 12px;
+    padding: 2px;
+  }
 }
 </style>

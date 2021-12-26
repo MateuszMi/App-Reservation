@@ -204,7 +204,7 @@ form {
   margin: 0 auto;
 }
 input {
-  width: 35%;
+  width: 40%;
   height: 30px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.24);
   border-radius: 5px;
@@ -310,6 +310,15 @@ input {
   .valid-number {
     display: flex;
     flex-direction: column;
+  }
+  #title {
+    text-align: center;
+  }
+  .information-contact-email {
+    margin-left: 10px;
+  }
+  input {
+    width: 60%;
   }
 }
 </style>
